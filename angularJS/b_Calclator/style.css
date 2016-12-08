@@ -1,0 +1,15 @@
+* {
+	margin: 0;
+	box-sizing: border-box;
+}
+.app {
+	width: 450px;
+	margin: 0 auto;
+}
+.col {
+	display: inline-block;
+	width: 25%;
+}
+.btn{
+	
+}
