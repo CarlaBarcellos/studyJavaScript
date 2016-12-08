@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../angular.js"></script>
+  <script src="app.js"></script>
+  <style>
+    .outline{
+      width: 400px;
+      margin: 0 auto;
+    }
+    .user_name{
+      width: 180px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body ng-controller="mainController">
+  <div class="outline">
+    <h2>PhoneList</h2>
+    <p>Name: 
+      <input type="text" 
+             ng-model="user.name">
+    </p>
+    <p>Phone Number:
+      <input type="text"
+             ng-model="user.tel"></input>
+    </p>
+    <p>
+      <button ng-click="addUser(user)">Add to List</button>
+    </p>
+    <hr>
+    <h3>Users</h3>
+    <table>
+      <tr>
+        <th class="user_name">Name</th>
+        <th>Phone Number</th>
+      </tr>
+      <tr ng-repeat="user in users">
+        <td>{{ user.name }}</td>
+        <td>{{ user.tel }}</td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

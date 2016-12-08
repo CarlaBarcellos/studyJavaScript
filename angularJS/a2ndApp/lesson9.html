@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" ng-app="myapp">
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS</title>
+  <script src="../angular.js"></script>
+  <script src="lesson7.js"></script>
+</head>
+<body>
+  <h1>AngularJS: Form Validation2</h1>
+  <div ng-controller="mainCtrl">
+    <form name="myForm"
+          ng-submit="addUser()"
+          novalidate>
+      <p>18+ : 
+        <input type="checkbox" ng-model="user.adult">
+        <span ng-show="myForm.url.$error.url">Email not valid</span>
+      </p>
+      <p>Phone : <br>
+        iPhone<input type="radio" ng-model="user.phone" value="iPhone">
+        Android<input type="radio" ng-model="user.phone" value="Android">
+        <span ng-show="myForm.url.$error.url">Email not valid</span>
+      </p>
+      <p>
+        <textarea ng-model="user.memo" ng-maxlength="140"></textarea>
+        {{ 140 - user.memo.length }}
+      </p>
+      <p><input type="submit" value="Add"></p>
+    </form>
+    <hr>
+    <pre>{{ user | json }}</pre>
+  </div>
+</body>
+</html>

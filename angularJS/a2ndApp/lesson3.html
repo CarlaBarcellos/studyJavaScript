@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" ng-app="myapp">
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS</title>
+  <script src="../angular.js"></script>
+  <script src="lesson2.js"></script>
+</head>
+<body>
+  <h1>AngularJS: Loop Filter</h1>
+  <div ng-controller="mainCtrl">
+    <p>
+      {{users.length}} users
+    </p>
+    <ul>
+      <!--  Filter -->
+      <li ng-repeat="user in users | orderBy:'-score' | limitTo:3">
+        {{ user.name | uppercase}} - {{ user.score | number:1}}
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

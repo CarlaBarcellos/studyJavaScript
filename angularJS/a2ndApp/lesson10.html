@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" ng-app="myapp">
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS</title>
+  <script src="../angular.js"></script>
+  <script src="lesson7.js"></script>
+</head>
+<body>
+  <h1>AngularJS: Form Validation2</h1>
+  <div ng-controller="mainCtrl">
+    <form name="myForm"
+          ng-submit="addUser()"
+          novalidate>
+      <p>Color : 
+        <select type="checkbox"
+               ng-model="user.color"
+               ng-options="'label: '+color for color in ['red', 'blue', 'pink']"
+               ng-init="user.color='red'">
+      </p>
+      <p><input type="submit" value="Add"></p>
+    </form>
+    <hr>
+    <pre>{{ user | json }}</pre>
+  </div>
+</body>
+</html>

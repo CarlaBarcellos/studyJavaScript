@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" ng-app="myapp">
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS</title>
+  <script src="../angular.js"></script>
+  <script src="lesson7.js"></script>
+</head>
+<body>
+  <h1>AngularJS: Form Validation</h1>
+  <div ng-controller="mainCtrl">
+    <form name="myForm"
+          ng-submit="addUser()"
+          novalidate>
+      <p>Name:
+        <input type="text" 
+               name="name"
+               ng-model="newUser"
+               required
+               ng-minlength="3"
+               ng-maxlength="5">
+        <span ng-show="myForm.name.$error.required">
+          Required!
+        </span>
+        <span ng-show="myForm.name.$error.minlength">
+          Too short!
+        </span>
+        <span ng-show="myForm.name.$error.maxlength">
+          Too Long!
+        </span>
+      </p>
+      <p>e-mail: 
+        <input type="email" name="email" ng-model="email">
+        <span ng-show="myForm.email.$error.email">Email not valid</span>
+      </p>
+      <p>URL: 
+        <input type="url" name="url" ng-model="url">
+        <span ng-show="myForm.url.$error.url">Email not valid</span>
+      </p>
+      <p><input type="submit" value="Add"></p>
+    </form>
+  </div>
+</body>
+</html>

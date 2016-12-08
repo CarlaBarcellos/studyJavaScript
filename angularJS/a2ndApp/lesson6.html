@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" ng-app="myapp">
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS</title>
+  <script src="../angular.js"></script>
+  <script src="lesson6.js"></script>
+</head>
+<body>
+  <h1>AngularJS: Loop Filter2</h1>
+  <div ng-controller="mainCtrl">
+    <p>
+      <input type="text" ng-model="query.name">
+    </p>
+    <ul>
+      <!--  Filter -->
+      <li ng-repeat="user in users | filter:query"
+          ng-controller="userItemCtrl">
+        {{ $index + 1 }}. {{ user.name | uppercase}} - {{ user.score | number:1}}
+        <button ng-click="increment()"> + 1 </button>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

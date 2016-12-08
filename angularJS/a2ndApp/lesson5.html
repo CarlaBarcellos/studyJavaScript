@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" ng-app="myapp">
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS</title>
+  <script src="../angular.js"></script>
+  <script src="lesson2.js"></script>
+  <style>
+    .even {
+      background-color: #ffd;
+    }
+    .odd {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h1>AngularJS: Loop Filter2</h1>
+  <div ng-controller="mainCtrl">
+    <p>
+      <input type="text" ng-model="query.name">
+    </p>
+    <ul>
+      <!--  Filter -->
+      <li ng-repeat="user in users | filter:query"
+          ng-class-even="'even'"
+          ng-class-odd="'odd'">
+        {{ $index + 1 }}. {{ user.name | uppercase}} - {{ user.score | number:1}}
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

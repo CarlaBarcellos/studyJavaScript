@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../angular.js"></script>
+  <script src="app.js"></script>
+  <style>
+    .task-true {
+      color: gray;
+      text-decoration: line-through;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 400px;
+      margin: 0 auto;
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body ng-controller="mainController">
+<div class="container">
+    <h1>ToDo list{{msg}}</h1>
+    <p>Finished tasks: {{ doneCount() }}  / {{ tasks.length }}</p>
+    <button ng-click="deleteDone()">Delete done Tasks</button>
+    <ul>
+      <li ng-repeat="task in tasks">
+        <input type="checkbox" ng-model="task.done">
+        <span class="task-{{task.done}}">{{ task.name }}</span>
+        <a href ng-click="tasks.splice($index, 1)">[x] Delete</a>
+      </li>
+    </ul>
+    <form ng-submit="addNew()">
+      <input type="text" ng-model="newTaskName">
+      <input type="submit" value="Add New Task">
+    </form>
+  </div>
+</body>
+</html>

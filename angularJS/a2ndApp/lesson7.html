@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" ng-app="myapp">
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS</title>
+  <script src="../angular.js"></script>
+  <script src="lesson7.js"></script>
+</head>
+<body>
+  <h1>AngularJS: Form</h1>
+  <div ng-controller="mainCtrl">
+    <form name="myName"
+          ng-submit="addUser()">
+      <p>Name:
+        <input type="text" name="name" ng-model="newUser">
+      </p>
+      <p><input type="submit" value="Add"></p>
+      <hr>
+      <ul>
+        <li ng-repeat="user in users">{{user.name}}</li>
+      </ul>
+      <p>newUser
+        <pre>{{newUser|json}}</pre>
+      </p>
+      <p>Users
+        <pre>{{users|json}}</pre>
+      </p>
+    </form>
+  </div>
+</body>
+</html>

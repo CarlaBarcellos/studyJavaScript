@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="hellorWorld">
+<head>
+  <meta charset="UTF-8">
+  <title>Hellow World</title>
+  <script src="../angular.js"></script>
+  <script>
+    angular.module("hellorWorld", []) // Injection
+    .controller("hellorWorldCtrl", function($scope){
+      $scope.message = "hellorWorld";
+    });
+  </script>
+</head>
+<body ng-controller="hellorWorldCtrl">
+  {{ message }}
+</body>
+</html>
