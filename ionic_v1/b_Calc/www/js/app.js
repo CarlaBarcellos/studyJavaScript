@@ -27,20 +27,6 @@ var app = angular.module('starter', [
   });
 });
 // Addition - Koji
-app.config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider
-    .state('app', {
-      url: '/',
-      templateUrl: 'template/home.html',
-      controller: 'MainController'
-    })
-    .state('config', {
-      url: '/config',
-      templateUrl: 'template/config.html',
-      controller: 'ConfigController'
-    });
-  $urlRouterProvider.otherwise("/");
-});
 
 app.config(function(localStorageServiceProvider) {
   localStorageServiceProvider
@@ -48,10 +34,9 @@ app.config(function(localStorageServiceProvider) {
 });
 
 app.controller('main',
-  function($scope, $ionicModal, localStorageService){
-    var taskData;
-    $scope.tasks = [];
-    $scope.task = [];
+  function($scope, $ionicModal, localStorageService, $location){
+    // functions
+    $scope.go = _go;
 
   // configure the ionic modal before use
   $ionicModal.fromTemplateUrl('/template/new-task-modal.html', {
@@ -61,40 +46,15 @@ app.controller('main',
     $scope.newTaskModal = modal;
   });
 
+  // defining functions
+  function _go(path){
+    $location.path(path);
+  }
+
   $scope.openTaskModal = function(){
     $scope.newTaskModal.show();
   };
   $scope.closeTaskModal =function(){
     $scope.newTaskModal.hide();
   };
-
-  $scope.getTasks = function(){
-    if (localStorageService.get(taskData)) {
-      $scope.tasks = localStorageService.get(taskData);
-    }else{
-      $scope.tasks = [];
-    }
-  };
-
-  $scope.createTask = function(){
-    $scope.tasks.push(angular.copy($scope.task) );
-    saveData();
-    $scope.task ={};
-    $scope.newTaskModal.hide();
-  };
-
-  $scope.removeTask = function(index){
-    $scope.tasks.splice(index, 1);
-    saveData();
-
-  };
-
-  $scope.completeTask = function(index){
-    $scope.tasks[index].completed = true;
-    saveData();
-  };
-
-  function saveData() {
-    localStorageService.set(taskData, $scope.tasks);
-  }
 });

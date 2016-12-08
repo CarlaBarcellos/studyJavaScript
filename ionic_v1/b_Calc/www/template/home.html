@@ -1,70 +1,104 @@
-<!-- <script id="home" type="text/ng-template"> -->
-
 <ion-view view-title="Calclator">
-  <ion-content>
-<!--     <ion-header-bar class="bar bar-lights">
-      <h1 class="title">Calclator</h1>
-      <button class="button button-icon icon ion-navicon" href="#/app/config"></button>
-      <a class="button icon ion-navicon icon-right ion-chevron-right" href="#/config"></a>
-    </ion-header-bar> -->
-
-    <!-- <a class="button icon ion-navicon icon-right ion-chevron-right" href="#/config"></a> -->
+    <ion-nav-buttons side="secondary">
+      <button class="button icon ion-gear-b" ng-click="go('/config')">
+      </button>
+    </ion-nav-buttons>
+  <ion-content scroll="false">
+  <ion-pane>
+  <div class="row">
+    <div id="display" class="col">
+     <div id="sign">x</div>
+      <div id="nums">012345679</div>
+    </div>
+  </div>
     <div class="row">
      <div class="col">
-      <button class="button button-block button-stable">7</button>
+      <button
+      ng-click="calc.addNum(0)"
+      class="button button-block button-stable">7</button>
     </div>
     <div class="col">
-      <button class="button button-block button-stable">8</button>
+      <button
+      ng-click="calc.addNum(0)"
+      class="button button-block button-stable">8</button>
     </div>
     <div class="col">
-      <button class="button button-block button-stable">9</button>
+      <button
+      ng-click="calc.addNum(0)"
+      class="button button-block button-stable">9</button>
     </div>
     <div class="col">
-      <button class="button button-block button-stable">C</button>
+      <button
+      ng-click="calc.addNum(0)"
+      class="button button-block button-stable">C</button>
     </div>
   </div>
   <div class="row">
    <div class="col">
-    <button class="button button-block button-stable">4</button>
+    <button
+      ng-click="calc.addNum(0)"
+    class="button button-block button-stable">4</button>
   </div>
   <div class="col">
-    <button class="button button-block button-stable">5</button>
+    <button
+      ng-click="calc.addNum(0)"
+    class="button button-block button-stable">5</button>
   </div>
   <div class="col">
-    <button class="button button-block button-stable">6</button>
+    <button
+      ng-click="calc.addNum(0)"
+    class="button button-block button-stable">6</button>
   </div>
   <div class="col">
-    <button class="button button-block button-stable">X</button>
+    <button
+      ng-click="calc.addNum(0)"
+    class="button button-block button-stable">X</button>
   </div>
 </div>
 <div class="row">
  <div class="col">
-  <button class="button button-block button-stable">1</button>
+  <button
+      ng-click="calc.addNum(0)"
+  class="button button-block button-stable">1</button>
 </div>
 <div class="col">
-  <button class="button button-block button-stable">2</button>
+  <button
+      ng-click="calc.addNum(0)"
+  class="button button-block button-stable">2</button>
 </div>
 <div class="col">
-  <button class="button button-block button-stable">3</button>
+  <button
+      ng-click="calc.addNum(0)"
+  class="button button-block button-stable">3</button>
 </div>
 <div class="col">
-  <button class="button button-block button-stable">-</button>
+  <button
+      ng-click="calc.addNum(0)"
+  class="button button-block button-stable">-</button>
 </div>
 </div>
 <div class="row">
  <div class="col">
-  <button class="button button-block button-stable">.</button>
+  <button
+      ng-click="calc.addNum(0)"
+  class="button button-block button-stable">.</button>
 </div>
 <div class="col">
-  <button class="button button-block button-stable">0</button>
+  <button
+      ng-click="calc.addNum(0)"
+  class="button button-block button-stable">0</button>
 </div>
 <div class="col">
-  <button class="button button-block button-stable">=</button>
+  <button
+      ng-click="calc.addNum(0)"
+  class="button button-block button-stable">=</button>
 </div>
 <div class="col">
-  <button class="button button-block button-stable">+</button>
+  <button
+      ng-click="calc.addNum(0)"
+  class="button button-block button-stable">+</button>
 </div>
 </div>
-</ion-content>
+  </ion-pane>
+  </ion-content>
 </ion-view>
-<!-- </script>

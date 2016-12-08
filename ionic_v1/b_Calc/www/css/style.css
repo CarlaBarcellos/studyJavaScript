@@ -1,1 +1,16 @@
 /* Empty. Add your own CSS if you like */
+
+#display {
+	background-color: #f0f0f0;
+	text-align: right;
+	color: #333;
+}
+#sign {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	color: #444;
+}
+#nums {
+	font-size: 3rem;
+	line-height: 4rem;
+}
