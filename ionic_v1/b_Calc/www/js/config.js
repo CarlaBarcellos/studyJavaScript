@@ -8,4 +8,5 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/config',
       templateUrl: 'template/config.html',
     });
+  $urlRouterProvider.otherwise("/");
 });
