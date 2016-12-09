@@ -1,15 +1,33 @@
 * {
 	margin: 0;
+ padding: 0;
 	box-sizing: border-box;
 }
 .app {
-	width: 450px;
+	width: 320px;
 	margin: 0 auto;
 }
 .col {
 	display: inline-block;
-	width: 25%;
+	width: 24%;
 }
 .btn{
-	
+	width: 100%;
+ padding: 3px;
+ margin: 1px;
+}
+.miniDisp,
+.display {
+ text-align: right;
+}
+.miniDisp {
+ min-height: 1.2rem;
+}
+.sign {
+ display: inline-block;
+ min-width: 1rem;
+}
+.display {
+ font-size: 2rem;
+ line-height: 2.5rem;
 }

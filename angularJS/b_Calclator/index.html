@@ -9,61 +9,111 @@
 </head>
 <body class="app" ng-controller="mainController">
   <div>
-    <div class="display"></div>
+    <div class="miniDisp">
+      <span ng-if="calc.stuck">{{calc.stuck}}</span>
+      <span class="sign">{{calc.sign}}</span>
+    </div>
+    <div class="display">{{calc.display}}</div>
     <div class="row">
+      <div class="col"></div>
+      <div class="col"></div>
       <div class="col">
-        <button class="btn">7</button>
+        <button
+          class="btn"
+          ng-click="clearAll()">CA</button>
       </div>
       <div class="col">
-        <button class="btn">8</button>
-      </div>
-      <div class="col">
-        <button class="btn">9</button>
-      </div>
-      <div class="col">
-        <button class="btn">C</button>
+        <button
+          class="btn"
+          ng-click="clear()">C</button>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <button class="btn">4</button>
+        <button
+          ng-click="addNum('7')"
+          class="btn">7</button>
       </div>
       <div class="col">
-        <button class="btn">5</button>
+        <button
+          ng-click="addNum('8')"
+          class="btn">8</button>
       </div>
       <div class="col">
-        <button class="btn">6</button>
+        <button
+          ng-click="addNum('9')"
+          class="btn">9</button>
       </div>
       <div class="col">
-        <button class="btn">X</button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <button class="btn">1</button>
-      </div>
-      <div class="col">
-        <button class="btn">2</button>
-      </div>
-      <div class="col">
-        <button class="btn">3</button>
-      </div>
-      <div class="col">
-        <button class="btn">-</button>
+        <button
+          ng-click="addSign('÷')"
+          class="btn">÷</button>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <button class="btn">.</button>
+        <button
+          ng-click="addNum('4')"
+          class="btn">4</button>
       </div>
       <div class="col">
-        <button class="btn">0</button>
+        <button
+          ng-click="addNum('5')"
+          class="btn">5</button>
       </div>
       <div class="col">
-        <button class="btn">=</button>
+        <button
+          ng-click="addNum('6')"
+          class="btn">6</button>
       </div>
       <div class="col">
-        <button class="btn">+</button>
+        <button
+          ng-click="addSign('×')"
+          class="btn">×</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button
+          ng-click="addNum('1')"
+          class="btn">1</button>
+      </div>
+      <div class="col">
+        <button
+          ng-click="addNum('2')"
+          class="btn">2</button>
+      </div>
+      <div class="col">
+        <button
+          ng-click="addNum('3')"
+          class="btn">3</button>
+      </div>
+      <div class="col">
+        <button
+          ng-click="addSign('-')"
+          class="btn">-</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button
+          ng-click="addPoint()"
+          class="btn">.</button>
+      </div>
+      <div class="col">
+        <button
+          ng-click="addNum('0')"
+          class="btn">0</button>
+      </div>
+      <div class="col">
+        <button
+          ng-click="equal()"
+          class="btn">=</button>
+      </div>
+      <div class="col">
+        <button
+          ng-click="addSign('+')"
+          class="btn">+</button>
       </div>
     </div>
   </div>
