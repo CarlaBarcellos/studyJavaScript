@@ -11,7 +11,7 @@
   <div>
     <div class="miniDisp">
       <span ng-if="calc.stuck">{{calc.stuck}}</span>
-      <span class="sign">{{calc.sign}}</span>
+      <span class="sign" ng-bind-html="calc.sign"></span>
     </div>
     <div class="display">{{calc.display}}</div>
     <div class="row">
@@ -46,7 +46,7 @@
       </div>
       <div class="col">
         <button
-          ng-click="addSign('÷')"
+          ng-click="addSign('div')"
           class="btn">÷</button>
       </div>
     </div>
@@ -68,8 +68,9 @@
       </div>
       <div class="col">
         <button
-          ng-click="addSign('×')"
-          class="btn">×</button>
+          ng-click="addSign('mul')"
+          ng-bind-html="mul"
+          class="btn"></button>
       </div>
     </div>
     <div class="row">
@@ -90,7 +91,7 @@
       </div>
       <div class="col">
         <button
-          ng-click="addSign('-')"
+          ng-click="addSign('sub')"
           class="btn">-</button>
       </div>
     </div>
@@ -112,7 +113,7 @@
       </div>
       <div class="col">
         <button
-          ng-click="addSign('+')"
+          ng-click="addSign('add')"
           class="btn">+</button>
       </div>
     </div>

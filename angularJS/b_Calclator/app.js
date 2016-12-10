@@ -1,5 +1,7 @@
 angular.module('App', [])
-.controller('mainController', ['$scope', function($scope){
+.controller('mainController',[
+  '$scope', '$sce',
+  function($scope, $sce){
 
   // functions
   $scope.go       = _go;
@@ -7,24 +9,21 @@ angular.module('App', [])
   $scope.addSign  = _addSign;
   $scope.addPoint = _addPoint;
   $scope.clearAll = _clearAll;
-  $scope.equal = _equal;
+  $scope.equal    = _equal;
   state = {
-    "setStandBy" : function(){
-      $scope.calc.state = "standBy";
-    },
-    "setResult" : function(){
-      $scope.calc.state = "result";
-    },
-    "standBy" : function(){
-      return "standBy";
-    },
-    "result" : function(){
-      return "result";
-    }
+    "StandBy" : 0,
+    "Result" : 1
+    };
+  Sign = {
+    "add": "&plus;",
+    "sub": "&minus;",
+    "mul": "&times;",
+    "div": "&divide;",
   };
 
   // init
-  $scope.clearAll();
+  $scope.mul = $sce.trustAsHtml('&times;');
+  _clearAll();
 
   // defining functions
   function _go(path){
@@ -33,7 +32,7 @@ angular.module('App', [])
 
   function _clearAll(){
     $scope.calc = {
-      "state"  : "standBy",
+      "state"  : state.StandBy,
       "sign"   : "",
       "display": '0',
       "stuck"  : 0
@@ -42,23 +41,29 @@ angular.module('App', [])
   }
 
   function _addNum(num){
-    if ($scope.calc.state === state.result() ) {
+    if ($scope.calc.state === state.Result ) {
       $scope.calc.display = num;
-      state.setStandBy();
+      $scope.calc.state =  state.StandBy;
+      return;
     }
     if ($scope.calc.display !== '0') {
       $scope.calc.display += num;
     }else{
       $scope.calc.display = num;
     }
-    console.log("addNum: ", num);
+    // console.log("addNum: ", num); // Debug
   }
 
   function _addSign(sign){
-    $scope.calc.sign = sign;
+    $scope.calc.sign = $sce.trustAsHtml( Sign[sign] );
+
     if ($scope.calc.stuck === 0) {
-      $scope.calc.stuck = +$scope.calc.display;
+      $scope.calc.stuck = Number($scope.calc.display);
       $scope.calc.display = '0';
+    }else{
+      var res = result();
+      _clearAll();
+      $scope.calc.stuck = res;
     }
   }
 
@@ -70,8 +75,8 @@ angular.module('App', [])
     var res = result();
     _clearAll();
     $scope.calc.display = res + '';
-    state.setResult();
-    console.log('state: ', $scope.calc.state);
+    $scope.calc.state = state.Result;
+    console.log($scope.calc.state);
   }
 
   function _addPoint(){
@@ -85,18 +90,18 @@ angular.module('App', [])
 
   function result(){
     var res;
-    switch($scope.calc.sign){
-      case '+':
+    switch( $scope.calc.sign.valueOf() ){
+      case Sign.add:
         res = $scope.calc.stuck + Number($scope.calc.display);
         break;
-      case '-':
-        res = $scope.calc.stuck - +$scope.calc.display;
+      case Sign.sub:
+        res = $scope.calc.stuck - Number($scope.calc.display);
         break;
-      case '×':
-        res = $scope.calc.stuck * +$scope.calc.display;
+      case Sign.mul:
+        res = $scope.calc.stuck * Number($scope.calc.display);
         break;
-      case '÷':
-        res = $scope.calc.stuck / +$scope.calc.display;
+      case Sign.div:
+        res = $scope.calc.stuck / Number($scope.calc.display);
         break;
     }
     return res;
