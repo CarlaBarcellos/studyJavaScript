@@ -12,7 +12,7 @@ angular.module('App', [])
   $scope.equal    = _equal;
   state = {
     "StandBy" : 0,
-    "Result" : 1
+    "Result"  : 1
     };
   Sign = {
     "add": "&plus;",
@@ -40,6 +40,7 @@ angular.module('App', [])
     console.log("clearAll");
   }
 
+
   function _addNum(num){
     if ($scope.calc.state === state.Result ) {
       $scope.calc.display = num;
@@ -55,16 +56,14 @@ angular.module('App', [])
   }
 
   function _addSign(sign){
-    $scope.calc.sign = $sce.trustAsHtml( Sign[sign] );
-
     if ($scope.calc.stuck === 0) {
+      $scope.calc.sign = $sce.trustAsHtml( Sign[sign] );
       $scope.calc.stuck = Number($scope.calc.display);
-      $scope.calc.display = '0';
     }else{
-      var res = result();
-      _clearAll();
-      $scope.calc.stuck = res;
+      $scope.calc.stuck = result();
+      $scope.calc.sign = $sce.trustAsHtml( Sign[sign] );
     }
+    $scope.calc.display = '0';
   }
 
   function _equal(){
@@ -106,6 +105,4 @@ angular.module('App', [])
     }
     return res;
   }
-
-
 }]);
