@@ -1,104 +1,116 @@
-<ion-view view-title="Calclator">
-    <ion-nav-buttons side="secondary">
-      <button class="button icon ion-gear-b" ng-click="go('/config')">
-      </button>
-    </ion-nav-buttons>
+<ion-view view-title="Calculator" ng-model="calc">
+  <ion-nav-buttons side="secondary">
+    <button class="button icon ion-gear-b" ng-click="go('/config')">
+    </button>
+  </ion-nav-buttons>
   <ion-content scroll="false">
-  <ion-pane>
-  <div class="row">
-    <div id="display" class="col">
-     <div id="sign">x</div>
-      <div id="nums">012345679</div>
-    </div>
-  </div>
-    <div class="row">
-     <div class="col">
-      <button
-      ng-click="calc.addNum(0)"
-      class="button button-block button-stable">7</button>
-    </div>
-    <div class="col">
-      <button
-      ng-click="calc.addNum(0)"
-      class="button button-block button-stable">8</button>
-    </div>
-    <div class="col">
-      <button
-      ng-click="calc.addNum(0)"
-      class="button button-block button-stable">9</button>
-    </div>
-    <div class="col">
-      <button
-      ng-click="calc.addNum(0)"
-      class="button button-block button-stable">C</button>
-    </div>
-  </div>
-  <div class="row">
-   <div class="col">
-    <button
-      ng-click="calc.addNum(0)"
-    class="button button-block button-stable">4</button>
-  </div>
-  <div class="col">
-    <button
-      ng-click="calc.addNum(0)"
-    class="button button-block button-stable">5</button>
-  </div>
-  <div class="col">
-    <button
-      ng-click="calc.addNum(0)"
-    class="button button-block button-stable">6</button>
-  </div>
-  <div class="col">
-    <button
-      ng-click="calc.addNum(0)"
-    class="button button-block button-stable">X</button>
-  </div>
-</div>
-<div class="row">
- <div class="col">
-  <button
-      ng-click="calc.addNum(0)"
-  class="button button-block button-stable">1</button>
-</div>
-<div class="col">
-  <button
-      ng-click="calc.addNum(0)"
-  class="button button-block button-stable">2</button>
-</div>
-<div class="col">
-  <button
-      ng-click="calc.addNum(0)"
-  class="button button-block button-stable">3</button>
-</div>
-<div class="col">
-  <button
-      ng-click="calc.addNum(0)"
-  class="button button-block button-stable">-</button>
-</div>
-</div>
-<div class="row">
- <div class="col">
-  <button
-      ng-click="calc.addNum(0)"
-  class="button button-block button-stable">.</button>
-</div>
-<div class="col">
-  <button
-      ng-click="calc.addNum(0)"
-  class="button button-block button-stable">0</button>
-</div>
-<div class="col">
-  <button
-      ng-click="calc.addNum(0)"
-  class="button button-block button-stable">=</button>
-</div>
-<div class="col">
-  <button
-      ng-click="calc.addNum(0)"
-  class="button button-block button-stable">+</button>
-</div>
-</div>
-  </ion-pane>
+    <ion-pane>
+      <div>
+        <div class="miniDisp">
+          <span ng-if="calc.stuck">{{calc.stuck}}</span>
+          <span class="sign" ng-bind-html="calc.sign"></span>
+        </div>
+        <div class="display">{{calc.display}}</div>
+        <div class="row">
+          <div class="col"></div>
+          <div class="col"></div>
+          <div class="col"></div>
+          <div class="col">
+            <button
+            class="button button-block button-stable"
+            ng-click="clearAll()">CA</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <button
+            ng-click="addNum('7')"
+            class="button button-block button-stable">7</button>
+          </div>
+          <div class="col">
+            <button
+            ng-click="addNum('8')"
+            class="button button-block button-stable">8</button>
+          </div>
+          <div class="col">
+            <button
+            ng-click="addNum('9')"
+            class="button button-block button-stable">9</button>
+          </div>
+          <div class="col">
+            <button
+            ng-click="addSign('div')"
+            class="button button-block button-stable">÷</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <button
+            ng-click="addNum('4')"
+            class="button button-block button-stable">4</button>
+          </div>
+          <div class="col">
+            <button
+            ng-click="addNum('5')"
+            class="button button-block button-stable">5</button>
+          </div>
+          <div class="col">
+            <button
+            ng-click="addNum('6')"
+            class="button button-block button-stable">6</button>
+          </div>
+          <div class="col">
+            <button
+            ng-click="addSign('mul')"
+            ng-bind-html="mul"
+            class="button button-block button-stable"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <button
+            ng-click="addNum('1')"
+            class="button button-block button-stable">1</button>
+          </div>
+          <div class="col">
+            <button
+            ng-click="addNum('2')"
+            class="button button-block button-stable">2</button>
+          </div>
+          <div class="col">
+            <button
+            ng-click="addNum('3')"
+            class="button button-block button-stable">3</button>
+          </div>
+          <div class="col">
+            <button
+            ng-click="addSign('sub')"
+            class="button button-block button-stable">-</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <button
+            ng-click="addPoint()"
+            class="button button-block button-stable">.</button>
+          </div>
+          <div class="col">
+            <button
+            ng-click="addNum('0')"
+            class="button button-block button-stable">0</button>
+          </div>
+          <div class="col">
+            <button
+            ng-click="equal()"
+            class="button button-block button-stable">=</button>
+          </div>
+          <div class="col">
+            <button
+            ng-click="addSign('add')"
+            class="button button-block button-stable">+</button>
+          </div>
+        </div>
+      </div>
+    </ion-pane>
   </ion-content>
 </ion-view>

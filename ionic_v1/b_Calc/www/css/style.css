@@ -1,16 +1,17 @@
 /* Empty. Add your own CSS if you like */
 
-#display {
-	background-color: #f0f0f0;
-	text-align: right;
-	color: #333;
+.miniDisp,
+.display {
+ text-align: right;
 }
-#sign {
-	font-size: 1.5rem;
-	line-height: 2rem;
-	color: #444;
+.miniDisp {
+ min-height: 1.2rem;
 }
-#nums {
-	font-size: 3rem;
-	line-height: 4rem;
+.sign {
+ display: inline-block;
+ min-width: 1rem;
+}
+.display {
+ font-size: 2rem;
+ line-height: 2.5rem;
 }
