@@ -22,7 +22,6 @@ angular.module('App', [])
   };
 
   // init
-  calc.mul = $sce.trustAsHtml('&times;');
   _clearAll();
 
   // defining functions
@@ -36,7 +35,6 @@ angular.module('App', [])
     console.log("clearAll");
   }
 
-
   function _addNum(num){
     if (calc.status.state === State.Result ) {
       calc.status.display = num;
@@ -48,7 +46,6 @@ angular.module('App', [])
     }else{
       calc.status.display = num;
     }
-    // console.log("addNum: ", num); // Debug
   }
 
   function _addSign(sign){
@@ -71,15 +68,11 @@ angular.module('App', [])
     _clearAll();
     calc.status.display = res + '';
     calc.status.state = State.Result;
-    console.log(calc.status);
   }
 
   function _addPoint(){
     if ( !~calc.status.display.indexOf('.')) {
       calc.status.display += '.';
-      console.log("addPoint");
-    }else{
-      console.log("ignore: addPoint");
     }
   }
 
