@@ -2,9 +2,11 @@ var querystring = require('querystring'),
   formidable = require('formidable'),
   fs = require('fs');
 
-exports.start = start;
-exports.upload = upload;
-exports.show = show;
+module.exports = {
+  start: start,
+  upload: upload,
+  show: show
+};
 
 function start(response){
   console.log('Request handler "start"');

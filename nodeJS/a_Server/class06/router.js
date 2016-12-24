@@ -1,4 +1,4 @@
-exports.route = route;
+module.exports.route = route;
 
 function route(handle, pathname, response, request){
   console.log('Request for:', pathname);

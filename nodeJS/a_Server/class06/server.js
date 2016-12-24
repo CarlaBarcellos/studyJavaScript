@@ -1,10 +1,8 @@
 var 
-  // formidable = require('formidable'),
   http = require('http'),
   url = require('url');
-  // sys = require('sys');
 
-exports.start = start;
+module.exports.start = start;
 
 function start(route, handle){
   http.createServer(onRequest).listen(8888);
