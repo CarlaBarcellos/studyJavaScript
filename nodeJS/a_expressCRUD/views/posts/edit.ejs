@@ -1,0 +1,14 @@
+<% include ../header %>
+<h1>Edit</h1>
+<form method="post" action="/posts/<%= id %>?_method=put">
+<input type="text" name="title" value="<%= post.title %>"><br>
+<textarea name="body"><%= post.body %>
+</textarea><br>
+<input type="hidden" name="id" value="<%= id %>">
+<input type="submit" name="Update">
+<input type="hidden" name="_csrf" value="<%= csrftoken %>">
+</form>
+<p>
+  <a href="/">Back to Home</a>
+</p>
+<% include ../footer %>

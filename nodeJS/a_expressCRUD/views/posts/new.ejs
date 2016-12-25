@@ -1,0 +1,13 @@
+<% include ../header %>
+<h1>Add New</h1>
+<form method="post" action="/posts/create">
+<input type="text" name="title"><br>
+<textarea name="body">
+</textarea><br>
+<input type="submit" name="Add">
+<input type="hidden" name="_csrf" value="<%= csrftoken %>">
+</form>
+<p>
+  <a href="/">Back to Home</a>
+</p>
+<% include ../footer %>
