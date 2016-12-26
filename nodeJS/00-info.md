@@ -21,4 +21,9 @@
 
 ( * stars on Git )
 
+### Samples
+
+- a_Server( Simple node.js example step by step )
+- a_express( Simple example of express )
+- a_expressCRUD( Basic CRUD example)
 <!--- [VS Code]()-->
